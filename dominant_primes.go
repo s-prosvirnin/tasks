@@ -137,7 +137,13 @@ func showPrimeNumbers(end int) {
 
 func doTestDominantPrimes(start int, end int, expectedSum int) {
 	if dominantPrimesRangeSum := dominantPrimesRangeSum2(start, end); dominantPrimesRangeSum != expectedSum {
-		fmt.Printf("TEST NOT PASSED. %d-%d. expected: %d, result: %d\n", start, end, expectedSum, dominantPrimesRangeSum)
+		fmt.Printf(
+			"TEST NOT PASSED. %d-%d. expected: %d, result: %d\n",
+			start,
+			end,
+			expectedSum,
+			dominantPrimesRangeSum,
+		)
 	} else {
 		fmt.Printf("test passed. %d-%d. expected: %d, result: %d\n", start, end, expectedSum, dominantPrimesRangeSum)
 	}
@@ -147,9 +153,21 @@ func doTestDominantPrimes2(start int, end int) {
 	dominantPrimesRangeSum := dominantPrimesRangeSum(start, end)
 	dominantPrimesRangeSum2 := dominantPrimesRangeSum2(start, end)
 	if dominantPrimesRangeSum != dominantPrimesRangeSum2 {
-		fmt.Printf("TEST NOT PASSED. %d-%d. expected: %d, result: %d\n", start, end, dominantPrimesRangeSum2, dominantPrimesRangeSum)
+		fmt.Printf(
+			"TEST NOT PASSED. %d-%d. expected: %d, result: %d\n",
+			start,
+			end,
+			dominantPrimesRangeSum2,
+			dominantPrimesRangeSum,
+		)
 	} else {
-		fmt.Printf("test passed. %d-%d. expected: %d, result: %d\n", start, end, dominantPrimesRangeSum2, dominantPrimesRangeSum)
+		fmt.Printf(
+			"test passed. %d-%d. expected: %d, result: %d\n",
+			start,
+			end,
+			dominantPrimesRangeSum2,
+			dominantPrimesRangeSum,
+		)
 	}
 }
 
