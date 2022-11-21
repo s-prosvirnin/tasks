@@ -4,7 +4,8 @@ import "fmt"
 
 func main() {
 	//a1()
-	a2()
+	//a2()
+	testMake()
 }
 
 func a2() {
@@ -24,4 +25,11 @@ func a1() {
 	x = append(x, y...)
 	x = append(x, y...)
 	fmt.Println(a, x)
+}
+
+func testMake() {
+	a := make([]int, 3, 3)
+	fmt.Println(a)
+	b := make([]int, 3)
+	fmt.Println(b)
 }

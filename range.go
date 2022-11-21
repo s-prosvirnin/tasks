@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	//rangeScope()
+	range1()
 }
 
 func rangeScope() {
@@ -27,4 +28,16 @@ func rangeScope() {
 		b[1] = 10
 		fmt.Printf("%d, ", v)
 	}
+}
+
+func range1() {
+	x := []int{7, 8, 9}
+	y := [3]*int{}
+	for i, v := range x {
+		defer print(v)
+
+		y[i] = &i
+	}
+
+	print(*y[0], *y[1], *y[2], " ")
 }
