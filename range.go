@@ -4,7 +4,9 @@ import "fmt"
 
 func main() {
 	//rangeScope()
-	range1()
+	//range1()
+	//range2()
+	range3()
 }
 
 func rangeScope() {
@@ -40,4 +42,41 @@ func range1() {
 	}
 
 	print(*y[0], *y[1], *y[2], " ")
+}
+
+func range2() {
+	var a = [2]int{5, 7}
+	for i, v := range a {
+		if i == 0 {
+			a[1] = 9
+		} else {
+			print(v)
+		}
+	}
+
+	b := [2]int{5, 7}
+	for i, v := range b[:] {
+		if i == 0 {
+			b[1] = 9
+		} else {
+			print(v)
+		}
+	}
+}
+
+func range3() {
+	type s struct {
+		f int
+	}
+	a := []s{{}}
+	for _, v := range a {
+		v.f = 5
+	}
+
+	b := []*s{new(s)}
+	for _, v := range b {
+		v.f = 5
+	}
+
+	fmt.Println(a[0], b[0])
 }
