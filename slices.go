@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	//a1()
-	//a2()
-	testMake()
+	// a1()
+	a2()
+	// testMake()
 }
 
 func a2() {
@@ -16,6 +16,7 @@ func a2() {
 		x = append(x, "Z")
 		x[i+1] = "Z"
 	}
+	print(len(x))
 }
 
 func a1() {
