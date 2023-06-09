@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/rand"
 	"sort"
-	"time"
 )
 
+// эту функцию можно пропустить, она просто пишет в каналы упорядоченные числа
 func prepareChannels() (ch1, ch2 chan int) {
 	const l = 10
 	ch1 = make(chan int, l)
@@ -52,29 +52,28 @@ func main() {
 		}
 	}()
 
-	mergeByLoop(ch1, ch2, ch3)
-
-	time.Sleep(time.Second)
+	res := mergeByLoop(ch1, ch2)
+	fmt.Println(res)
 }
 
-func mergeByLoop(ch1, ch2, ch3 chan int) {
-	defer close(ch3)
-
+func mergeByLoop(ch1, ch2 chan int) []int {
 	n1, ok1 := <-ch1
 	n2, ok2 := <-ch2
-
+	var res []int
 	for {
 		if (ok2 && n2 <= n1) || (ok2 && !ok1) {
-			ch3 <- n2
+			res = append(res, n2)
 			n2, ok2 = <-ch2
 			continue
 		}
 		if (ok1 && n1 < n2) || (ok1 && !ok2) {
-			ch3 <- n1
+			res = append(res, n1)
 			n1, ok1 = <-ch1
 			continue
 		}
 
 		break
 	}
+
+	return res
 }

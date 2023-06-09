@@ -4,7 +4,7 @@ import "strconv"
 
 // https://leetcode.com/problems/string-compression/
 
-func compress(chars []byte) int {
+func compress1(chars []byte) int {
 	currentChar := chars[0]
 	char := chars[0]
 	charsPointer := 0
@@ -33,4 +33,28 @@ func compress(chars []byte) int {
 	}
 
 	return charsPointer
+}
+
+func compress2(chars []byte) int {
+	letterCount := 0
+	letterPos := 0
+	totalCount := 0
+	for i, c := range chars {
+		if chars[letterPos] == c {
+			letterCount++
+			continue
+		}
+		totalCount++
+		if letterCount > 1 {
+			totalCount += len(strconv.Itoa(letterCount))
+		}
+		letterCount = 1
+		letterPos = i
+	}
+	totalCount++
+	if letterCount > 1 {
+		totalCount += len(strconv.Itoa(letterCount))
+	}
+
+	return totalCount
 }

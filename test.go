@@ -2,15 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"sync"
+	"time"
 )
-
-type X struct {
-	V int
-}
-
-func (x X) S() {
-	fmt.Println(x.V)
-}
 
 // что выведет данный код
 func main() {

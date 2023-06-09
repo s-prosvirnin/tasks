@@ -54,7 +54,7 @@ func main() {
 		return
 	}
 
-	handleResult("MATCH")
+	handleResult("NOT MATCH")
 }
 
 func handleError(err error) {
