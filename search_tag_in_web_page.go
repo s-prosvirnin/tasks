@@ -9,7 +9,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-const url = "https://habr.com/ru/flows/develop/top10/"
+// const url = "https://habr.com/ru/flows/develop/top10/"
 const searchTag = "meta name=\"viewport\""
 
 func main() {
